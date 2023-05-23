@@ -1,0 +1,28 @@
+[data-md-color-scheme="cesnet"] {
+    --md-primary-fg-color: #006aa8;
+    --md-primary-fg-color--light: #00A1E3;
+    --md-primary-fg-color--dark: #004d7a;
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: "../fonts/Avenir/AvenirLTStd-Medium.otf";
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: "../fonts/Avenir/AvenirLTStd-Book.otf";
+    font-style: Book;
+}
+
+@font-face {
+    font-family: "Avenir";
+    src: "../fonts/Avenir/AvenirLTStd-Roman.otf";
+    font-style: Roman;
+}
+
+:root {
+    --md-text-font: "Avenir";
+    --md-code-font: "JetBrains Mono";
+}

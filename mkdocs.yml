@@ -1,0 +1,26 @@
+site_name: Traffic Capture Infrastructure
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Getting Started: getting_started.md
+  - Packages:
+    - Hive: packages/hive.md
+    - Drone: packages/drone.md
+    - Libraries: packages/libraries.md
+  - Reference: reference/architecture.md
+  - Changelog: changelog.md
+
+theme:
+  name: material
+  logo: assets/images/navbar_logo.png
+  favicon: assets/images/favicon.ico
+  palette:
+    scheme: cesnet
+  custom_dir: docs/assets/homepage/
+  features:
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
