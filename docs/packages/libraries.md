@@ -8,10 +8,23 @@ However, you can find prepared Python, Go, and Rust libraries below to simplify 
 
 The PyTCI library.
 
+### Packages
+
+Find packages [here](https://github.com/FETA-Project/TrafficCaptureInfrastructure/tree/main/packages/pytci)
+
 ## rs-tci
 
 The rs-tci library.
 
+### Packages
+
+Find packages [here](https://github.com/FETA-Project/TrafficCaptureInfrastructure/tree/main/packages/rstci)
+
+
 ## gotci
 
 The gotci library.
+
+### Packages
+
+Find packages [here](https://github.com/FETA-Project/TrafficCaptureInfrastructure/tree/main/packages/gotci)
