@@ -10,7 +10,9 @@ nav:
     - Hive: packages/hive.md
     - Drone: packages/drone.md
     - Libraries: packages/libraries.md
-  - Reference: reference/architecture.md
+  - Reference:
+      - System Architecture: reference/architecture.md
+      - API Reference: reference/api.md
   - Changelog: changelog.md
 
 theme:
