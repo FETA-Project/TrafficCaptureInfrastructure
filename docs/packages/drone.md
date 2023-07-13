@@ -62,11 +62,14 @@ ifc = "eth0"
 #nfb-bus_path = "/bin/nfb-bus"
 ```
 
-## Installation
+## Packages
+
+Find packages [here](https://github.com/FETA-Project/TrafficCaptureInfrastructure/tree/main/packages/drone)
+
+## Installation with RPM
 
 The drone in provided in a RPM form, so it can be installed like this:
 `dnf -y install /path/to/tci_drone.rpm`
 
-## Packages
-
-Find packages [here](https://github.com/FETA-Project/TrafficCaptureInfrastructure/tree/main/packages/drone)
+## Installation from source
+...
