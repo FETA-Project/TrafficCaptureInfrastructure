@@ -1,0 +1,38 @@
+networks:
+  tci_network:
+
+services:
+  tci_db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: tciguidb
+      MYSQL_USER: tciguidb-user
+      MYSQL_PASSWORD: tciguidb-password
+    networks:
+      - tci_network
+
+  tci_hive:
+    image: tci_hive
+    # build: hive/docker/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - tci_db
+    environment:
+      DB_HOST: tci_db
+    networks:
+      - tci_network
+    entrypoint: "/hive/wait-for-it.sh -t 60 tci_db:3306 -- /hive/entrypoint.sh"
+
+  tci_drone:
+    image: tci_drone
+    # build: drone/docker/
+    depends_on:
+      - tci_hive
+    environment:
+      MYSQL_HOST: tci_db
+      HIVE_URL: http://tci_hive:8080
+    networks:
+      - tci_network
+    entrypoint: "/drone/wait-for-it.sh -t 60 tci_hive:8080 -- /drone/entrypoint.sh -a"
