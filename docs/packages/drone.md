@@ -71,5 +71,38 @@ Find packages [here](https://github.com/FETA-Project/TrafficCaptureInfrastructur
 The drone in provided in a RPM form, so it can be installed like this:
 `dnf -y install /path/to/tci_drone.rpm`
 
-## Installation from source
+## Installation Using Docker
+
+Note: You can also run the whole system using docker compose (see [Getting Started](../getting_started.md#running-the-tci-system-with-docker-compose))
+
+First download the drone tar package (see [Packages](#packages)).
+Extract the package and in the root folder run `make docker`.
+This will build the docker image tci_drone:\<version\>.
+
+### Supported Enviromental Variables
+
+* `HIVE_URL`
+    * URL of hive to connect to
+    * default: `http://localhost:8080`
+* **`TOKEN`**
+    * token generated on hive for the drone
+    * the only **required** variable
+* `OUTPUT_FOLDER`
+    * directory to use for output files (pcaps)
+    * default: `/pcaps/`
+* `LOG_DIR`
+    * directory to use for logs
+    * default: `/var/log/tci/drone/`
+* `NETWORK_INTERFACE`
+    * network interface to use
+    * default: `eth0`
+* `TCPDUMP_PATH`
+    * path to tcpdump
+    * default: `/usr/sbin/tcpdump`
+
+### Example of Running a Docker Container:
+`docker run -d tci_drone:<version> -e TOKEN="GENERATED_TOKEN" -e HIVE_URL="http://hive.url"`
+
+
+## Installation From Source 
 ...

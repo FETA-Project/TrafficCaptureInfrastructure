@@ -94,12 +94,59 @@ yum install python3 python39-devel mariadb-devel
 ### 5) Installing the hive
 Download the package version you want (see [packages](#packages)).
 ```bash
-rpm install ./path-to-hive.rpm
+dnf -y install /path/to/tci_hive.rpm
 ```
 
 ### 6) Customization
 Last step would be to customize the config (located in `/etc/tci/hive/config.toml`).
 If you change the `[db]` part you should also redeploy the database (script provided in `/usr/bin/tci/hive/deploy_db.sh`)
+
+
+## Installation Using Docker
+
+Note: You can also run the whole system using docker compose (see [Getting Started](../getting_started.md#running-the-tci-system-with-docker-compose))
+
+For correctly running, hive needs a databse.
+You can run this in docker as well, for example:
+`docker run -d mysql -e MYSQL_ROOT_PASSWORD=toor -e MYSQL_DATABASE=tciguidb -e MYSQL_USER=tciguidb-user -e MYSQL_PASSWORD=tciguidb-password`
+
+First download the hive tar package (see [Packages](#packages)).
+Extract the package and in the root folder run `make docker`.
+This will build the docker image tci_hive:\<version\>.
+
+### Supported Enviromental Variables
+
+* `DB_USER`
+    * default: `tciguidb-user`
+* `DB_PASS`
+    * default: `tciguidb-password`
+* `DB_HOST`
+    * default: `localhost`
+* `DB_PATH`
+    * default: `tciguidb`
+* `DB_TYPE`
+    * default: `mysql`
+* `DB_OPTIONS`
+    * default: `charset=utf8mb4`
+* `LDAP_URI`
+    * default: `ldap://localhost:389`
+* `HOST`
+    * default: `0.0.0.0`
+* `PORT`
+    * default: `8080`
+* `OUTPUT_FOLDER`
+    * directory to use for output files (pcaps)
+    * default: `/pcaps/`
+* `TMP_FOLDER`
+    * directory to use for temporary files
+    * default: `/tmp/`
+* `LOG_DIR`
+    * directory to use for logs
+    * default: `/var/log/tci/hive/`
+
+### Example of Running a Docker Container:
+`docker run -d tci_hive:<version> -e PORT=8000 -e LOG_DIR=/logs/hive/`
+
 
 ## Installation from source
 ...

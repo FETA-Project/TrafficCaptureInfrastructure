@@ -13,7 +13,7 @@ services:
       - tci_network
 
   tci_hive:
-    image: tci_hive
+    image: tci_hive:2.0.1
     # build: hive/docker/
     ports:
       - "8080:8080"
@@ -26,7 +26,7 @@ services:
     entrypoint: "/hive/wait-for-it.sh -t 60 tci_db:3306 -- /hive/entrypoint.sh"
 
   tci_drone:
-    image: tci_drone
+    image: tci_drone:1.0.3
     # build: drone/docker/
     depends_on:
       - tci_hive
@@ -36,3 +36,5 @@ services:
     networks:
       - tci_network
     entrypoint: "/drone/wait-for-it.sh -t 60 tci_hive:8080 -- /drone/entrypoint.sh -a"
+    # deploy:
+      # replicas: 5
