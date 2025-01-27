@@ -1,0 +1,1057 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../drone/">
+      
+      
+        <link rel="next" href="../../reference/architecture/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Libraries - Traffic Capture Infrastructure</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="cesnet" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tci-client-libraries" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Traffic Capture Infrastructure" class="md-header__button md-logo" aria-label="Traffic Capture Infrastructure" data-md-component="logo">
+      
+  <img src="../../assets/images/navbar_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Traffic Capture Infrastructure
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Libraries
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting_started/" class="md-tabs__link">
+        
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../hive/" class="md-tabs__link">
+          
+  
+  Packages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/architecture/" class="md-tabs__link">
+          
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../changelog/" class="md-tabs__link">
+        
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Traffic Capture Infrastructure" class="md-nav__button md-logo" aria-label="Traffic Capture Infrastructure" data-md-component="logo">
+      
+  <img src="../../assets/images/navbar_logo.png" alt="logo">
+
+    </a>
+    Traffic Capture Infrastructure
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Packages
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Packages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hive
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../drone/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Drone
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Libraries
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Libraries
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generating-an-access-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating an Access Token
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytci" class="md-nav__link">
+    <span class="md-ellipsis">
+      PyTCI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PyTCI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rs-tci" class="md-nav__link">
+    <span class="md-ellipsis">
+      rs-tci
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="rs-tci">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complex-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complex Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gotci" class="md-nav__link">
+    <span class="md-ellipsis">
+      gotci
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="gotci">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#packages_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    System Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#generating-an-access-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generating an Access Token
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pytci" class="md-nav__link">
+    <span class="md-ellipsis">
+      PyTCI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PyTCI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rs-tci" class="md-nav__link">
+    <span class="md-ellipsis">
+      rs-tci
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="rs-tci">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simple-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simple Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simple Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complex-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complex Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packages_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gotci" class="md-nav__link">
+    <span class="md-ellipsis">
+      gotci
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="gotci">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#packages_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="tci-client-libraries">TCI Client Libraries</h1>
+<p>While it is possible to interact with the TCI using the Hive web interface, sometimes an automated approach is preferred.
+In this case, the TCI system can be controlled using the implemented REST API.
+However, you can find prepared Python, Go, and Rust libraries below to simplify this process.
+To access the system using any of the libraries, a user access token must be generated.</p>
+<h2 id="generating-an-access-token">Generating an Access Token</h2>
+<p>The access token can be generated using the web interface in the "Applications" tab.
+Creating a new application will generate an access token.
+This token can be accessed by the user only when it is generated, so make sure to copy it.
+Once the token is generated, authorizing with this token is equivalent to using the TCI system using the owner's account.</p>
+<p>Each token should be used only within a single script.
+Make sure to never publish your tokens.
+If any token needs to be invalidated, simply delete the given application and generate a new token by creating a new application.</p>
+<h2 id="pytci">PyTCI</h2>
+<p>The PyTCI library is the most commonly used library, and is thus the most tested.</p>
+<h3 id="example-usage">Example Usage</h3>
+<pre><code class="language-python">from pytci import PyTCI
+
+tci = PyTCI(&quot;localhost&quot;, 8080)
+tci.set_access_token(&quot;your access token&quot;)
+
+jobs = tci.get_jobs()
+for j in jobs:
+    print(j.name)
+
+new_job = tci.create_job(
+    name=&quot;My new job!&quot;,
+    duration=10,
+    max_capture_data=50,
+    lines=[&quot;CaptureLine1&quot;],
+    filter='',
+    script_name=None,
+    script_args=None
+)
+job_info = tci.get_job_status(new_job.id)
+print(job_info.status)
+</code></pre>
+<h3 id="packages">Packages</h3>
+<p>Find packages <a href="https://github.com/FETA-Project/TrafficCaptureInfrastructure/tree/main/packages/pytci">here</a></p>
+<h2 id="rs-tci">rs-tci</h2>
+<h3 id="simple-example">Simple Example</h3>
+<pre><code class="language-rust">extern crate rs_tci;
+
+use rs_tci::client::TCI;
+use std::env;
+
+fn main() {
+    let endpoint = &quot;https://tci2.liberouter.org/api/v1&quot;;
+    let token = match env::args().nth(1) {
+        Some(v) =&gt; v,
+        None =&gt; &quot;&lt;foobar token&gt;&quot;.to_string(),
+    };
+
+    // Creating the client
+    let client = TCI::new(endpoint, token.as_str()).unwrap();
+    println!(&quot;{}&quot;, client);
+
+    // Getting all the available jobs
+    let jobs = client.get_jobs().unwrap();
+    println!(&quot;{:#?}&quot;, jobs);
+
+    // Getting all the available lines
+    let lines = client.get_lines().unwrap();
+    println!(&quot;{:#?}&quot;, lines);
+}
+</code></pre>
+<h4 id="complex-example">Complex Example</h4>
+<pre><code class="language-rust">extern crate rs_tci;
+
+use std::env;
+use std::thread;
+use std::time::Duration;
+
+use rs_tci::client::TCI;
+use rs_tci::models::requests;
+
+fn main() {
+    let endpoint = &quot;https://tci2.liberouter.org/api/v1&quot;;
+    let token = match env::args().nth(1) {
+        Some(v) =&gt; v,
+        None =&gt; &quot;&lt;foobar token&gt;&quot;.to_string(),
+    };
+
+    // Creating the client
+    let client = match TCI::new(endpoint, token.as_str()) {
+        Ok(v) =&gt; v,
+        Err(e) =&gt; panic!(&quot;{}&quot;, e),
+    };
+
+    // We want to create a new capture job.
+    // To do this, we need to figure out which lines are available to the hive.
+    let lines = client.get_lines().unwrap();
+
+    // Furthermore, image that the job we want to create is urgent.
+    // We therefore select only the line names which are currently idle.
+    let line_names: Vec&lt;&amp;str&gt; = lines
+        .iter()
+        .filter(|l| l.status == Some(&quot;Idle&quot;.to_string()))
+        .map(|line| line.name.as_str())
+        .collect();
+
+    println!(&quot;Choosing lines {:#?}&quot;, line_names);
+
+    // We create our job model and send it to the hive.
+    let job = requests::Job {
+        name: &quot;UrgentJob&quot;,
+        filter: &quot;port 443&quot;,
+        duration: 10,
+        max_capture_data: 10_000_000,
+        lines: line_names,
+        script_name: None,
+        script_args: None,
+    };
+    let created_job = client.create_job(job).unwrap();
+
+    println!(&quot;The job was created: {:#?}&quot;, created_job);
+
+    // Now we want to wait until the job we created is finished.
+    // We wait at least for the duration of the job, then we keep
+    // asking the hive about the status.
+    thread::sleep(Duration::from_secs(10));
+    loop {
+        let job = client.get_job(created_job.id).unwrap();
+        if job.end_time.is_none() &amp;&amp; job.status != &quot;Failed&quot; {
+            thread::sleep(Duration::from_secs(5));
+        } else {
+            break;
+        }
+    }
+
+    // Once the job is finished, we can download the ZIP file.
+    client.download_job(created_job.id, &quot;content.zip&quot;).unwrap();
+}
+</code></pre>
+<h3 id="packages_1">Packages</h3>
+<p>Find packages <a href="https://github.com/FETA-Project/TrafficCaptureInfrastructure/tree/main/packages/rstci">here</a></p>
+<h2 id="gotci">gotci</h2>
+<p>The gotci library is currently work in progress, and is due to be released shortly.</p>
+<h3 id="packages_2">Packages</h3>
+<p>Find packages <a href="https://github.com/FETA-Project/TrafficCaptureInfrastructure/tree/main/packages/gotci">here</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
